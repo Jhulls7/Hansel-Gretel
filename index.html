@@ -6,7 +6,6 @@
   <title>🎄 Gran Pre-Venta de Casitas Navideñas 🎁</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* --- RESET --- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html,body { height: 100%; }
     body {
@@ -17,7 +16,6 @@
       position: relative;
     }
 
-    /* --- CANVAS (puntitos flotantes) --- */
     #particles-canvas {
       position: fixed;
       top: 0;
@@ -28,7 +26,6 @@
       z-index: 0;
     }
 
-    /* --- NIEVE (iconos ❄️) contenedor --- */
     #snow-icons {
       position: fixed;
       top: 0;
@@ -37,7 +34,6 @@
       height: 100%;
       pointer-events: none;
       z-index: 10;
-      /* por encima del canvas pero detrás del contenido */
       overflow: visible;
     }
 
@@ -50,14 +46,12 @@
       will-change: transform, opacity;
     }
 
-    /* animación genérica (se ajusta con JS mediante inline styles para aleatoriedad) */
     @keyframes fall {
       0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
       10% { opacity: 1; }
       100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0.9; }
     }
 
-    /* --- POPUP --- */
     #popup {
       position: fixed;
       top: 0;
@@ -72,14 +66,14 @@
       animation: fadeIn 0.4s ease;
     }
     #popup-title {
-      color: #fff;  
+      color: #fff;
       text-shadow: 0 0 8px rgba(255, 255, 255, 0.7),
       0 0 16px rgba(255, 0, 0, 0.6);
     }
 
 
     .popup-content {
-      background: #d72638; /* rojo */
+      background: #d72638;
       color: #fff;
       padding: 28px;
       border-radius: 14px;
@@ -110,7 +104,6 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.12);
     }
 
-    /* --- HEADER / HERO --- */
     header { position: relative; z-index: 0; }
 
     #hero {
@@ -122,7 +115,6 @@
       overflow: hidden;
     }
 
-    /* Contenedor que coloca el logo sobre el título */
     #hero-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -134,9 +126,8 @@
       gap: 12px;
     }
 
-    /* Logo pequeño encima del título */
     #logo-small {
-      width: 150px;     /* tamaño pequeño, ajustable */
+      width: 150px;
       height: auto;
       border-radius: 8px;
       transform-origin: center;
@@ -149,7 +140,7 @@
     }
 
     #hero h1 {
-      font-size: 1.9rem; /* más pequeño porque el logo está arriba */
+      font-size: 1.9rem;
       font-weight: 800;
       margin: 0;
       line-height: 1.1;
@@ -183,7 +174,6 @@
 
     .hero-images img:hover { transform: scale(1.04); }
 
-    /* --- NUEVO: logo fijo (no toca otros estilos) --- */
     #fixed-logo {
       position: fixed;
       top: 12px;
@@ -201,7 +191,6 @@
     #fixed-logo:hover { transform: scale(1.05) rotate(-4deg); }
     @keyframes logoFloat { from { transform: translateY(0); } to { transform: translateY(6px); } }
 
-    /* --- NUEVO: BOTÓN WHATSAPP NAVIDEÑO (debajo de las imágenes) --- */
     .whatsapp-btn {
       display: inline-flex;
       align-items: center;
@@ -223,18 +212,14 @@
       box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
     }
 
-    /* --- SECCIONES (mantener estructura original) --- */
     section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; z-index: 20; position: relative; }
     h2 { text-align: center; font-size: 1.8rem; margin-bottom: 26px; font-weight:800; color:#d72638; }
 
-    /* Productos */
     #product { background: #fff; border-radius: 10px; padding-top: 40px; padding-bottom: 40px; }
     .product-list { display:flex; flex-wrap:wrap; justify-content:center; gap:22px; }
     .product-item { background:#fff8f8; border-radius:12px; text-align:center; padding:16px; max-width:220px; transition:transform .22s, box-shadow .22s; box-shadow:0 6px 14px rgba(0,0,0,0.08); }
     .product-item:hover { transform: translateY(-6px); box-shadow:0 14px 28px rgba(0,0,0,0.12); }
     .product-item img { width:100%; border-radius:8px; margin-bottom:8px; }
-
-/* Pasos */
 
 #how-it-works {
   background: #fff;
@@ -256,11 +241,10 @@
   text-align: center;
   padding: 16px;
   max-width: 300px;
-  min-height: 340px; /* puedes ajustar este valor */
+  min-height: 340px;
   transition: transform .22s, box-shadow .22s;
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 
-  /* 🔹 Centramos contenido verticalmente */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -274,33 +258,29 @@
 }
 
 .step img {
-  display: block;              /* Evita espacios vacíos debajo */
-  margin: 0 auto 12px auto;    /* Centra horizontalmente */
-  width: 80%;                  /* Un poco más pequeña, centrada */
+  display: block;
+  margin: 0 auto 12px auto;
+  width: 80%;
   border-radius: 8px;
-  border: 2px solid #ffdede; 
+  border: 2px solid #ffdede;
   box-shadow: 0 0 10px rgba(208, 0, 0, 0.3);
 }
 
 
 
 
-    /* FAQ */
     #faq { background:#fff8f0; border-radius:10px; padding-top:40px; padding-bottom:40px; }
     .accordion { max-width:700px; margin:0 auto; }
     .accordion-item { background:#fff; border-radius:10px; margin-bottom:12px; box-shadow:0 6px 20px rgba(0,0,0,0.06); overflow:hidden; }
     .accordion-header { background:#ffd700; padding:14px; cursor:pointer; font-weight:700; }
     .accordion-content { display:none; padding:12px 14px; color:#444; }
 
-    /* Footer */
     footer { background:#333; color:#fff; text-align:center; padding:20px; z-index:20; position:relative; }
     .social-links a { color:#ffd700; text-decoration:none; margin:0 10px; font-weight:600; }
 
-    /* --- ANIMACIONES UTILES --- */
     @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
     @keyframes slideUp { from{transform:translateY(24px);opacity:0;} to{transform:translateY(0);opacity:1;} }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       #hero { padding: 48px 18px; }
       #hero h1 { font-size: 1.5rem; }
@@ -313,13 +293,10 @@
 </head>
 <body>
 
-  <!-- CANVAS para puntitos flotantes -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- Contenedor para copos (iconos unicode) -->
   <div id="snow-icons" aria-hidden="true"></div>
 
-  <!-- POPUP -->
   <div id="popup" role="dialog" aria-labelledby="popup-title" aria-modal="true">
     <div class="popup-content">
       <button class="close-btn" aria-label="Cerrar popup" onclick="closePopup()">✖</button>
@@ -329,11 +306,9 @@
     </div>
   </div>
 
-  <!-- HEADER / HERO -->
   <header>
     <section id="hero" aria-label="Sección principal">
       <div id="hero-inner">
-        <!-- Logo encima del título (pequeño) -->
         <img id="logo-small" src="img\logo.png" alt="Logo Casitas de Navidad" />
         <h1>Gran Pre-Venta de Casitas Navideñas 🎄</h1>
         <p>Arma, decora y disfruta una dulce Navidad en familia.</p>
@@ -343,7 +318,6 @@
           <img src="img\im2.jpg" alt="Decoración de galletas">
         </div>
 
-        <!-- NUEVO: BOTÓN WHATSAPP DEBAJO DE LAS IMÁGENES -->
         <a class="whatsapp-btn" href="https://wa.me/51912341859?text=¡Quiero%20mi%20casita%20navideña!%20" target="_blank" rel="noopener noreferrer">
           🎄 <span>¡Quiero mi casita navideña!</span>
         </a>
@@ -352,7 +326,6 @@
     </section>
   </header>
 
-  <!-- PRODUCTOS -->
   <section id="product" aria-label="Productos">
     <h2>🎁 ¿Qué incluye tu pack navideño?</h2>
     <div class="product-list">
@@ -371,7 +344,6 @@
     </div>
   </section>
 
-  <!-- PASOS -->
   <section id="how-it-works" aria-label="Cómo funciona">
     <h2>✨ Vive la experiencia navideña</h2>
     <div class="steps">
@@ -393,7 +365,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" aria-label="Preguntas frecuentes">
     <h2>❓ Preguntas frecuentes</h2>
     <div class="accordion">
@@ -412,7 +383,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="social-links">
       <a href="https://wa.me/51912341859" target="_blank">WhatsApp</a> |
@@ -423,22 +393,13 @@
   </footer>
 
   <script>
-    /* ---------------------------
-       Helpers: Selecciones
-       --------------------------- */
     const popup = document.getElementById('popup');
     const popupCountdown = document.getElementById('popup-countdown');
 
-    /* ---------------------------
-       POPUP: cerrar
-       --------------------------- */
     function closePopup() {
       popup.style.display = 'none';
     }
 
-    /* ---------------------------
-       Countdown dentro del popup
-       --------------------------- */
     (function startCountdown() {
       const targetDate = new Date('2025-11-20T23:59:59').getTime();
       function update() {
@@ -458,24 +419,15 @@
       setInterval(update, 1000);
     })();
 
-    /* ---------------------------
-       Redirect WhatsApp
-       --------------------------- */
     function redirectToWhatsApp() {
       window.open('https://wa.me/519XXXXXXXX', '_blank');
     }
 
-    /* ---------------------------
-       Accordion (FAQ)
-       --------------------------- */
     function toggleAccordion(el) {
       const content = el.nextElementSibling;
       content.style.display = (content.style.display === 'block') ? 'none' : 'block';
     }
 
-    /* ---------------------------
-       Partículas (puntitos flotantes) en canvas
-       --------------------------- */
     (function particles() {
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
@@ -485,8 +437,7 @@
       canvas.width = width;
       canvas.height = height;
 
-      // Config
-      const numParticles = Math.round((width * height) / 9000); // escala con pantalla
+      const numParticles = Math.round((width * height) / 9000);
       const maxR = 1.6;
 
       function resize() {
@@ -520,11 +471,9 @@
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
           ctx.fill();
 
-          // movimiento suave (oscilante)
           p.x += p.vx + Math.sin(Date.now() / 1000 + p.x) * 0.02;
           p.y += p.vy + Math.cos(Date.now() / 1200 + p.y) * 0.02;
 
-          // reingresar cuando salen
           if (p.x < -10) p.x = width + 10;
           if (p.x > width + 10) p.x = -10;
           if (p.y < -10) p.y = height + 10;
@@ -537,13 +486,9 @@
       draw();
     })();
 
-    /* ---------------------------
-       NIEVE con iconos ❄️ generada dinámicamente
-       cada copo tiene posición, tamaño, duración, delay y un leve sway aleatorio
-       --------------------------- */
     (function snowIcons() {
       const container = document.getElementById('snow-icons');
-      const count = 60; // ajusta cantidad de copos
+      const count = 60;
       const minSize = 12;
       const maxSize = 34;
 
@@ -552,33 +497,27 @@
       for (let i = 0; i < count; i++) {
         const el = document.createElement('div');
         el.className = 'snowflake-icon';
-        el.textContent = '❄'; // icono básico
+        el.textContent = '❄';
         const size = Math.round(rand(minSize, maxSize));
         el.style.fontSize = size + 'px';
 
-        // posicion horizontal inicial aleatoria
         const left = rand(0, 100);
         el.style.left = left + 'vw';
 
-        // duración y delay aleatorios para evitar sincronía
-        const duration = rand(6, 18); // segundos que tarda en caer
-        const delay = rand(0, 8); // delay inicial
-        const sway = rand(-40, 40); // px de desplazamiento horizontal total
+        const duration = rand(6, 18);
+        const delay = rand(0, 8);
+        const sway = rand(-40, 40);
 
-        // opacidad
         el.style.opacity = rand(0.4, 0.95);
 
-        // transform origin para rotación natural
         el.style.transformOrigin = 'center';
 
-        // aplicamos la animación fall con propiedades personalizadas
         el.style.animationName = 'fall';
         el.style.animationDuration = duration + 's';
         el.style.animationTimingFunction = 'linear';
         el.style.animationDelay = delay + 's';
         el.style.animationIterationCount = 'infinite';
 
-        // guardamos parámetros para la animación JS:
         el.dataset.sway = sway;
         el.dataset.duration = duration;
         el.dataset.delay = delay;
@@ -587,7 +526,6 @@
         container.appendChild(el);
       }
 
-      // Animación manual para sway y posición X (mejor control que depender solo del keyframes)
       const flakes = Array.from(container.children);
 
       function updateFlakes() {
@@ -595,28 +533,21 @@
         for (let flake of flakes) {
           const duration = parseFloat(flake.dataset.duration) * 1000;
           const start = parseFloat(flake.dataset.start);
-          const progress = (now - start) / duration; // 0..1
-          // si aún no empezó (delay), no mover
+          const progress = (now - start) / duration;
           if (progress < 0) {
-            // mantén arriba de la pantalla justo fuera de vista
             flake.style.top = (-60 + (parseFloat(flake.dataset.size) * 0)) + 'px';
             continue;
           }
-          // ciclo (como infinite): calcular cicloProgress en 0..1
           const cycle = (progress % 1);
 
-          // Y: mapea ciclo 0..1 -> -10vh .. 110vh
-          const topPercent = cycle * 120 - 10; // -10% .. 110%
+          const topPercent = cycle * 120 - 10;
           flake.style.top = topPercent + 'vh';
 
-          // X sway: basado en seno para movimiento natural
           const leftVw = parseFloat(flake.style.left) || 0;
           const sway = parseFloat(flake.dataset.sway) || 20;
           const swayOffsetPx = Math.sin((now / 1000) * 2 + leftVw) * (sway / 2);
-          // Apply translateX in px
           flake.style.transform = 'translateX(' + swayOffsetPx + 'px) rotate(' + (cycle * 360) + 'deg)';
 
-          // Opacity pulso sutil
           const baseOpacity = parseFloat(flake.style.opacity) || 0.8;
           const pulse = 0.12 * Math.sin((cycle * Math.PI * 2) + leftVw);
           flake.style.opacity = Math.max(0.25, Math.min(1, baseOpacity + pulse));
@@ -626,15 +557,6 @@
       updateFlakes();
     })();
 
-    /* ---------------------------
-       Opcional: Mostrar el popup solo un tiempo y luego pueda cerrarse o auto-cerrar
-       (se mantiene abierto por defecto; si quieres auto-close, descomenta)
-       --------------------------- */
-    // setTimeout(() => { popup.style.display = 'none'; }, 15000); // auto-cerrar en 15s (opcional)
-
-    /* ---------------------------
-       Accesibilidad: cerrar popup con ESC
-       --------------------------- */
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         popup.style.display = 'none';
@@ -644,8 +566,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
